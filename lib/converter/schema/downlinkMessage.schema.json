@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "title": "downlink message body",
+    "description": "This is schema for downlink message from Server to Connector",
+    "type": "object",
+    "properties": {
+      "txpk": {
+        "type": "array",
+        "minItems": 1,
+        "items": { 
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "object"
+            }
+          }
+        },
+        "uniqueItems": true
+      }  
+    },
+    "required": ["txpk"],
+    "additionalProperties": true
+  }

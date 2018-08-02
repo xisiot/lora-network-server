@@ -1,0 +1,50 @@
+{
+  "id": "common",
+  "definitions": {
+    "id": {
+      "description": "message id",
+      "type": "string"
+    },
+    "op": {
+      "description": "operation",
+      "type": "string"
+    },
+    "cid": {
+      "description": "cloud id",
+      "type": "string"
+    },
+    "did": {
+      "description": "device id",
+      "type": "string"
+    },
+    "uid": {
+      "description": "user id",
+      "type": "string"
+    },
+
+    "mid": {
+      "description": "mqtt id",
+      "type": "string"
+    },
+    "httpid": {
+      "description": "http id",
+      "type": "string"
+    },
+    "topic": {
+      "description": "mqtt topic",
+      "type": "string"
+    },
+    "payload": {
+      "description": "mqtt payload",
+      "type": "string"
+    },
+    "args": {
+      "description": "arguments",
+      "type": "object"
+    },
+    "act": {
+      "description": "mqtt subsribe or unsubscirbe. 1: add; 0: del",
+      "type": "number"
+    }
+  }
+}

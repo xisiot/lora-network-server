@@ -1,0 +1,21 @@
+{
+  "node": true, // node environment
+  "esversion": 6,
+  "eqeqeq": true,
+  "curly": true, // enforce using curly braces around blocks
+  "latedef": true, // enforce defining a variable before using it
+  "quotmark": true, // allows either " or ' but you must be consistent
+  "undef": true, // error on use of undefined variables
+  //"unused": true, // error on variables that are defined but never used
+  "trailing": true, // error on trailing whitespace
+  "expr": true, // enable expressions
+  "globals": {
+    /* MOCHA */
+    "describe": false,
+    "it": false,
+    "before": false,
+    "beforeEach": false,
+    "after": false,
+    "afterEach": false
+  }
+}

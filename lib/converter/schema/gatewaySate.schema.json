@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "title": "gatewaystat object body",
+    "description": "This is schema for gatewaystat object",
+    "type": "object",
+    "properties": {
+        "gatewayId": {
+            "type": "object"
+        },
+        "time": {
+            "type": "string"
+        },
+        "lati": {
+            "type": "number"
+        },
+        "long": {
+            "type": "number"
+        },
+        "alti": {
+            "type": "number"
+        },
+        "rxnb": {
+            "type": "number"
+        },
+        "rxok": {
+            "type": "number"
+        },
+        "rxfw": {
+            "type": "number"
+        },
+        "ackr": {
+            "type": "number"
+        },
+        "dwnb": {
+            "type": "number"
+        },
+        "txnb": {
+            "type": "number"
+        }
+    },
+    "required": ["gatewayId"],
+    "additionalProperties": false
+  }
+  

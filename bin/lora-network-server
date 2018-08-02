@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+const config = require('../config');
+const DataHandler = require('../lib/dataHandler');
+const Log = require('../lib/lora-lib/log');
+
+const log = new Log(config.log);
+const networkServer = new DataHandler(config, log);
+
+networkServer.start().catch(function (err) {
+
+  // FIXME use Log
+  log.error(error.message);
+  networkServer.close().catch(err => log.error(err));
+});

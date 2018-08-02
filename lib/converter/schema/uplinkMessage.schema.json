@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "title": "uplink message body",
+  "description": "This is schema for uplink message from Connector to Server",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "object"
+    },
+    "token": {
+      "type": "object"
+    },
+    "identifier": {
+      "type": "object"
+    },
+    "gatewayId": {
+      "type": "object"
+    },
+    "rxpk": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string"
+        },
+        "tmst": {
+          "type": "number"
+        },
+        "chan": {
+          "type": "number"
+        },
+        "rfch": {
+          "type": "number"
+        },
+        "freq": {
+          "type": "number"
+        },
+        "stat": {
+          "type": "number"
+        },
+        "modu": {
+          "type": "string"
+        },
+        "datr": {
+          "type": "string"
+        },
+        "codr": {
+          "type": "string"
+        },
+        "rssi": {
+          "type": "number"
+        },
+        "lsnr": {
+          "type": "number"
+        },
+        "size": {
+          "type": "number"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "MHDR": {
+              "type": "object"
+            },
+            "MACPayload": {
+              "type": "object",
+              "properties": {
+                "FHDR": {
+                  "type": "object"
+                },
+                "FPort": {
+                  "type": "object"
+                },
+                "FRMPayload:": {
+                  "type": "object"
+                }
+              }
+            },
+            "MIC": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "MACPayload"
+          ]
+        }
+      }
+    },
+    "stat": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string"
+        },
+        "lati": {
+          "type": "number"
+        },
+        "long": {
+          "type": "number"
+        },
+        "alti": {
+          "type": "number"
+        },
+        "rxnb": {
+          "type": "number"
+        },
+        "rxok": {
+          "type": "number"
+        },
+        "rxfw": {
+          "type": "number"
+        },
+        "ackr": {
+          "type": "number"
+        },
+        "dwnb": {
+          "type": "number"
+        },
+        "txnb": {
+          "type": "number"
+        }
+      }
+    },
+    "error": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "gatewayId"
+  ],
+  "additionalProperties": true
+}

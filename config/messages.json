@@ -1,0 +1,87 @@
+{
+  "KafkaTest-${nsid}": {
+    "$schema": "http://json-schema.org/schema#",
+    "title": "kafka-test-schema",
+    "description": "test for KafkaTest-1 topic", 
+    "type": "object",
+    "properties": {
+      "id": {
+        "description": "unique identifier for a product",
+        "type": "integer"
+      },
+      "name": {
+        "description": "name of the product",
+        "type": "string"
+      },
+      "price": {
+        "type": "number",
+        "exclusiveMinimum": 0
+      },
+      "tag": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1,
+        "uniqueItems": true
+      }
+    },
+    "required": ["id", "name", "price"],
+    "additionalProperties": false
+  },
+  "IoT-pub": {
+    "$schema": "http://json-schema.org/schema#",
+    "title": "IoT-pub-message-schema",
+    "description": "message schema for IoT-pub topic", 
+    "type": "object",
+    "properties": {
+      "from": {
+        "description": "some params of this message",
+        "type": "object",
+        "properites": {
+          "did": {
+            "descriptioin": "did of device",
+            "type": "string"
+          }
+        },
+        "required": ["did"]
+      },
+      "topic": {
+        "type": "string",
+        "description": "topic of update device shadow"
+      },
+      "cid": {
+        "type": "number",
+        "description": "id of server",
+        "default": 1
+      },
+      "payload": {
+        "type": "object",
+        "description": "update shadow",
+        "properties": {
+          "state": {
+            "type": "object",
+            "properties": {
+              "reported": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object"
+                  },
+                  "isCmd": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "required": ["reported"]
+          }
+        },
+        "required": ["state"]
+      }
+    },
+    "required": ["from", "topic", "cid", "payload"],
+    "additionalProperties": false
+  }
+
+}

@@ -1,0 +1,17 @@
+{
+  "preset": "airbnb",
+  "disallowTrailingWhitespace": true,
+  "disallowQuotedKeysInObjects": false,
+  //"requireTrailingComma": false,
+  //"requirePaddingNewLinesAfterBlocks": false,
+  "excludeFiles": [
+    "**/node_modules/**",
+    "config/**",
+    "docs/**",
+    "test/config.js"
+  ],
+  "requireCamelCaseOrUpperCaseIdentifiers": {
+    "ignoreProperties": true,
+    "allowedPrefixes": [ "product_"]
+  }
+}

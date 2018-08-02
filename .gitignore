@@ -1,0 +1,6 @@
+*npm-debug.log
+*.swp
+docs/api
+node_modules
+coverage
+config/config.js

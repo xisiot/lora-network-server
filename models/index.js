@@ -2,6 +2,7 @@
 
 const BluebirdPromise = require('bluebird');
 const loraLib = require('../lib/lora-lib');
+const config = require('../config');
 const {consts, Models} = loraLib;
 const RedisModels = Models.RedisModels;
 const MySQLModels = Models.MySQLModels;
@@ -10,19 +11,19 @@ function DbModels(dbClient) {
 
   let _this = this;
 
-  this._ioredis = dbClient('redis');
-  this._sequelize = dbClient('mysql');
+  this._ioredis = dbClient.createRedisClient(config.database.redis);
+  this._sequelize = dbClient.createSequelizeClient(config.database.mysql);
   this.redisConn = {};
   this.mysqlConn = {};
 
   /* create model instance */
-  Object.keys(RedisModels).forEach(function (key) {
-    _this.redisConn[key] = new RedisModels[key](_this._ioredis);
-  });
-
-  Object.keys(MySQLModels).forEach(function (key) {
-    _this.mysqlConn[key] = new MySQLModels[key](_this._sequelize);
-  });
+  for (let model in RedisModels) {
+    _this.redisConn[model] = new RedisModels[model](_this._ioredis);
+  }
+  
+  for (let model in MySQLModels) {
+    _this.mysqlConn[model] = new MySQLModels[model](_this._sequelize);
+  }
 
   /* create association between entities */
   let modelIns = this.mysqlConn;

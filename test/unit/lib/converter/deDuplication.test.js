@@ -10,7 +10,7 @@ const mochaConfig = config.mocha;
 const consts = require('../../../../lib/lora-lib/constants');
 
 const DbModels = require('../../../../models');
-const DbClient = require('../../../../lib/dbClient');
+const DbClient = require('../../../../lib/lora-lib/dbClient');
 const DeDupliaction = require('../../../../lib/converter/deDuplication');
 
 let dbModels = new DbModels(DbClient);

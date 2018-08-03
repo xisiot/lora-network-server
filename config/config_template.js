@@ -27,16 +27,18 @@ module.exports = {
     },
     redis: {
       cluster: false,
-      host: 'localhost',
-      port: 6379,
-      retryStrategy: function (times) {
-        var delay = Math.min(times * 50, 30000);
-        if (delay >= 30000) {
-          console.log('---------------Redis Retry close---------------');
-          return 'close';
+      options: [{
+        host: 'localhost',
+        port: 6379,
+        retryStrategy: function (times) {
+          var delay = Math.min(times * 50, 30000);
+          if (delay >= 30000) {
+            console.log('---------------Redis Retry close---------------');
+            return 'close';
+          }
+          return delay;
         }
-        return delay;
-      }
+      }],
     },
   },
 

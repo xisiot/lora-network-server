@@ -10,7 +10,7 @@ const config = require('../../../../config');
 const mochaConfig = config.mocha;
 
 const DbModels = require('../../../../models');
-const DbClient = require('../../../../lib/dbClient');
+const DbClient = require('../../../../lib/lora-lib/dbClient');
 
 const testConsts = require('../../testConstants');
 

@@ -3,7 +3,7 @@
 const expect = require('chai').expect;
 
 const DbModels = require('../../../models');
-const DbClient = require('../../../lib/dbClient');
+const DbClient = require('../../../lib/lora-lib/dbClient');
 const consts = require('../../../lib/lora-lib/constants');
 
 // test data for redis

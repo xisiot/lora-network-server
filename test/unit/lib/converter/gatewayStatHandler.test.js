@@ -11,7 +11,7 @@ const mochaConfig = config.mocha;
 const _ = require('lodash');
 
 const DbModels = require('../../../../models');
-const DbClient = require('../../../../lib/dbClient');
+const DbClient = require('../../../../lib/lora-lib/dbClient');
 const GatewayStatHandler = require('../../../../lib/converter/gatewayStatHandler');
 
 // test data for mysql

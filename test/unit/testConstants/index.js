@@ -23,8 +23,6 @@ module.exports = new class {
     };
 
     this.testDeviceInfo = {
-      did: '0000000000000000000000',
-      productKey: '9b8c627cc32ed692e6a7121664f30cab',
       DevEUI: Buffer.alloc(consts.DEVEUI_LEN),
       DevAddr: Buffer.alloc(consts.DEVADDR_LEN, devAddr, 'hex'),
       AppKey: Buffer.from('2B7E151628AED2A6ABF7158809CF4F3C', 'hex'),
@@ -153,7 +151,6 @@ module.exports = new class {
       },
       MIC: Buffer.from('5ff618da', 'hex'),
       version: '02',
-      did: '0000000000000000000000',
       FCntUp: 1,
       srcID: '',
     };

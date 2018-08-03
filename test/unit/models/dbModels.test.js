@@ -28,6 +28,7 @@ describe('Test dbModels', function () {
   let Developers = mysqlConn.Developers;
 
   it('Use mysql connection & create a Device', function (done) {
+
     Developers.createItem(testConsts.testDeveloper)
       .then(function () {
         return AppInfo.createItem(testConsts.testApp);
@@ -39,8 +40,8 @@ describe('Test dbModels', function () {
         return DeviceInfo.readItem(whereOpts);
       })
       .then(function (res) {
+
         expect(res).to.be.an('object');
-        expect(res.productKey).to.equal(testConsts.testDeviceInfo.productKey);
         expect(res.DevEUI).to.deep.equal(testConsts.testDeviceInfo.DevEUI);
         expect(res.FCntUp).to.equal(0);
 

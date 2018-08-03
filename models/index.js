@@ -1,9 +1,10 @@
 'use strict';
 
 const BluebirdPromise = require('bluebird');
-const RedisModels = require('./redisModels');
-const MysqlModels = require('../lib/lora-lib/mysqlModels');
-const consts = require('../lib/lora-lib/constants');
+const loraLib = require('../lib/lora-lib');
+const {consts, Models} = loraLib;
+const RedisModels = Models.RedisModels;
+const MySQLModels = Models.MySQLModels;
 
 function DbModels(dbClient) {
 
@@ -19,8 +20,8 @@ function DbModels(dbClient) {
     _this.redisConn[key] = new RedisModels[key](_this._ioredis);
   });
 
-  Object.keys(MysqlModels).forEach(function (key) {
-    _this.mysqlConn[key] = new MysqlModels[key](_this._sequelize);
+  Object.keys(MySQLModels).forEach(function (key) {
+    _this.mysqlConn[key] = new MySQLModels[key](_this._sequelize);
   });
 
   /* create association between entities */

@@ -2,16 +2,20 @@
   "name": "lora-network-server",
   "version": "1.0.0",
   "description": "LoRa Network Server. Analysis and process all LoRa data.",
-  "main": "index.js",
+  "main": "./bin/lora-network-server",
   "scripts": {
     "buildTables": "node models/BuildTables.js",
     "test": "mocha --recursive",
     "lint": "files=$(git diff --cached --name-only --diff-filter=ACM | grep '\\.js$'); jshint $files && jscs $files"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:xisiot/lora-network-server"
+  },
   "keywords": [
     "lora"
   ],
-  "author": "IC2",
+  "author": "xisiot Co., Ltd.",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.1.2",
@@ -33,6 +37,7 @@
     "winston": "^3.0.0-rc3"
   },
   "pre-commit": [
-    "lint"
+    "lint",
+    "test"
   ]
 }

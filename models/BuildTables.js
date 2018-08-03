@@ -1,11 +1,13 @@
 'use strict';
 
-const MysqlModels = require('../lib/lora-lib/mysqlModels');
-const sequelize = require('../lib/dbClient')('mysql');
+const loraLib = require('../lib/lora-lib');
+const config = require('../config');
+const {Models, dbClient} = loraLib;
+const _sequelize = dbClient.createSequelizeClient(config.database.mysql);
 
 const modelIns = {};
-for (let model in MysqlModels) {
-  modelIns[model] = new MysqlModels[model](sequelize);
+for (let model in Models.MySQLModels) {
+  modelIns[model] = new Models.MySQLModels[model](_sequelize);
 }
 
 modelIns.GatewayStatus._model.belongsTo(
@@ -62,6 +64,9 @@ modelIns.DeviceConfig._model.belongsTo(
   }
 );
 
-sequelize.sync({ force: true }).then(function () {
-  sequelize.close();
+_sequelize.sync({ force: true }).then(function () {
+  console.log('Successfully building the Tables in mysql Database');
+  _sequelize.close();
+}).catch(function (err) {
+  console.log(err);
 });

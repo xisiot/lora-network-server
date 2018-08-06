@@ -4,7 +4,6 @@ const expect = require('chai').expect;
 
 const DbModels = require('../../../models');
 const DbClient = require('../../../lib/lora-lib/dbClient');
-const consts = require('../../../lib/lora-lib/constants');
 
 // test data for redis
 const listKey = 'testRedis';
@@ -22,7 +21,6 @@ describe('Test dbModels', function () {
   let dbModels = new DbModels(DbClient);
   let mysqlConn = dbModels.mysqlConn;
   let redisConn = dbModels.redisConn;
-  let deviceConfig = mysqlConn.DeviceConfig;
   let DeviceInfo = mysqlConn.DeviceInfo;
   let AppInfo = mysqlConn.AppInfo;
   let Developers = mysqlConn.Developers;

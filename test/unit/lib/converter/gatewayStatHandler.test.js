@@ -3,12 +3,7 @@
 const chai = require('chai');
 chai.use(require('chai-json-schema-ajv'));
 const expect = chai.expect;
-const assert = chai.assert;
-const mocha = require('mocha');
 const consts = require('../../../../lib/lora-lib/constants');
-const config = require('../../../../config');
-const mochaConfig = config.mocha;
-const _ = require('lodash');
 
 const DbModels = require('../../../../models');
 const DbClient = require('../../../../lib/lora-lib/dbClient');

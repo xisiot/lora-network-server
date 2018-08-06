@@ -40,6 +40,12 @@ module.exports = {
         }
       }],
     },
+    mongodb: {
+      host: 'localhost',
+      port: 27017,
+      db: 'loraLogger',
+      cluster: false,
+    },
   },
 
   //Test file setting

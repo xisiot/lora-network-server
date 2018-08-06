@@ -3,7 +3,8 @@
 const BluebirdPromise = require('bluebird');
 const loraLib = require('../lib/lora-lib');
 const config = require('../config');
-const {consts, Models} = loraLib;
+const mongoose = require('mongoose');
+const {Models} = loraLib;
 const RedisModels = Models.RedisModels;
 const MySQLModels = Models.MySQLModels;
 
@@ -13,6 +14,7 @@ function DbModels(dbClient) {
 
   this._ioredis = dbClient.createRedisClient(config.database.redis);
   this._sequelize = dbClient.createSequelizeClient(config.database.mysql);
+  this._mongoose = dbClient.createMongoClient(config.database.mongodb);
   this.redisConn = {};
   this.mysqlConn = {};
 
@@ -93,6 +95,7 @@ DbModels.prototype.close = function () {
   return BluebirdPromise.all([
     _this._sequelize.close(),
     _this._ioredis.disconnect(),
+    mongoose.disconnect(),
   ]);
 };
 

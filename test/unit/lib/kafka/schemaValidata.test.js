@@ -2,7 +2,6 @@
 
 const expect = require('chai').expect;
 const SchemaValidate = require('../../../../lib/lora-lib/mqClient/kafka/schema');
-const aa = require('../../../../config/');
 const options = {
   nsid: 1,
 };

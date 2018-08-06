@@ -7,7 +7,6 @@ const expect = chai.expect;
 const mocha = require('mocha');
 const config = require('../../../../config');
 const mochaConfig = config.mocha;
-const consts = require('../../../../lib/lora-lib/constants');
 
 const DbModels = require('../../../../models');
 const DbClient = require('../../../../lib/lora-lib/dbClient');

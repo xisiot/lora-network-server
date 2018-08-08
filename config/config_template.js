@@ -55,7 +55,7 @@ module.exports = {
   },
 
   //Kafka consumer & producer setting
-  msgQueue: {
+  mqClient_ns: {
     nsid: `${nsid}`, // if exist in topic schema
     consumerGroup: {
       options: {

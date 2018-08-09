@@ -75,7 +75,7 @@
       "pubToJoinServer": "JS-sub",
       "subFromJoinServer": "JS-pub",
       "pubToControllerServer": "CS-sub",
-      "subFromControllerServer": "CS-pu"
+      "subFromControllerServer": "CS-pub"
     }
   },
   "log": {

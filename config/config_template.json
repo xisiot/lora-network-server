@@ -86,5 +86,8 @@
     "fcntCheckEnable": true,
     "deduplication_Delay": 200,
     "downlink_Data_Delay": 200
+  },
+  "http": {
+    "port": 3000
   }
 }

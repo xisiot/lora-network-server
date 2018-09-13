@@ -3,9 +3,14 @@
 const config = require('../config');
 const DataHandler = require('../lib/dataHandler');
 const Log = require('../lib/lora-lib/log');
+const dbClient = require('../lib/lora-lib').dbClient;
+const DbModels = require('../models');
+const HttpServer = require('../lib/httpServer');
 
 const log = new Log(config.log);
-const networkServer = new DataHandler(config, log);
+const dbModels = new DbModels(dbClient);
+const networkServer = new DataHandler(config, dbModels, log);
+const httpServer = new HttpServer(dbModels, log);
 
 networkServer.start().catch(function (err) {
 
@@ -13,3 +18,5 @@ networkServer.start().catch(function (err) {
   log.error(error.message);
   networkServer.close().catch(err => log.error(err));
 });
+
+httpServer.bind(config);

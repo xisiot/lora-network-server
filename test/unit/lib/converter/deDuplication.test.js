@@ -1,12 +1,7 @@
 'use strict';
-const BluebirdPromise = require('bluebird');
 const chai = require('chai');
 chai.use(require('chai-json-schema-ajv'));
 const expect = chai.expect;
-
-const mocha = require('mocha');
-const config = require('../../../../config');
-const mochaConfig = config.mocha;
 
 const DbModels = require('../../../../models');
 const DbClient = require('../../../../lib/lora-lib/dbClient');
@@ -20,7 +15,7 @@ const oneUplingMsg = {
   'version': '02',
   'token': '5ab3',
   'identifier': '00',
-  'gatewayId': '32f9bdfffee3e603',
+  'gatewayId': Buffer.from('32f9bdfffee3e603','hex'),
   'rxpk': {
     'tmst': 2303093204,
     'chan': 0,
@@ -42,7 +37,7 @@ const twoUplingMsg = {
   'version': '02',
   'token': '5ab3',
   'identifier': '00',
-  'gatewayId': '66f9bdfffee3e603',
+  'gatewayId': Buffer.from('66f9bdfffee3e603', 'hex'),
   'rxpk': {
     'tmst': 2303093204,
     'chan': 0,
@@ -66,6 +61,7 @@ describe('Test DeDupliaction', function () {
     it('Input one RXInfo Message', function (done) {
       const testJson = oneUplingMsg;
       deDuplication.handle(testJson).then(res => {
+        console.log(res);
         expect(res).to.be.an('array');
         expect(res.length).to.equal(2);
         expect(res[0]).to.be.deep.equal(twoUplingMsg);

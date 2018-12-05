@@ -10,8 +10,8 @@
     "autorestart": true,
     "min_uptime": "30s",
     "node_args": "--max-old-space-size=65500",
-    "out_file": "~/lora/log/lora-network-server.log",
-    "error_file": "~/lora/log/lora-network-server.log",
+    "out_file": "../log/lora-network-server.log",
+    "error_file": "../log/lora-network-server.log",
     "combine_logs": true,
     "env": {
       "NODE_ENV": "development"

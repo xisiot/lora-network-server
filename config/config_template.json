@@ -16,11 +16,11 @@
         "charset": "utf8"
       },
       "pool": {
-        "max": 10, 
-        "min": 1, 
+        "max": 10,
+        "min": 1,
         "idle": 10000,
-        "acquire": 30000 
-       }
+        "acquire": 30000
+      }
     },
     "redis": {
       "cluster": false,

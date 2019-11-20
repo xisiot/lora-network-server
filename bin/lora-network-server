@@ -19,4 +19,4 @@ networkServer.start().catch(function (err) {
   networkServer.close().catch(err => log.error(err));
 });
 
-httpServer.bind(config);
+//httpServer.bind(config);
